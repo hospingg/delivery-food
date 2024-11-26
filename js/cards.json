@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Піца плюс",
+      "image": "img/pizza-plus/preview.jpg",
+      "deliveryTime": "50",
+      "rating": 4.5,
+      "price": "200",
+      "category": "Піца"
+    },
+    {
+      "name": "Танукі",
+      "image": "img/tanuki/preview.jpg",
+      "deliveryTime": "60",
+      "rating": 4.5,
+      "price": "1 200",
+      "category": "Суші, роли"
+    },
+    {
+      "name": "FoodBand",
+      "image": "img/food-band/preview.jpg",
+      "deliveryTime": "40",
+      "rating": 4.5,
+      "price": "150",
+      "category": "Піца"
+    },
+    {
+      "name": "Ikigai",
+      "image": "img/palki-skalki/preview.jpg",
+      "deliveryTime": "55",
+      "rating": 4.5,
+      "price": "250",
+      "category": "Піца"
+    },
+    {
+      "name": "Пузата хата",
+      "image": "img/gusi-lebedi/preview.jpg",
+      "deliveryTime": "75",
+      "rating": 4.5,
+      "price": "300",
+      "category": "Українські"
+    },
+    {
+      "name": "PizzaBurger",
+      "image": "img/pizza-burger/preview.jpg",
+      "deliveryTime": "45",
+      "rating": 4.5,
+      "price": "700",
+      "category": "Піца"
+    }
+]
+  

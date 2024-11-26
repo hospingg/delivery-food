@@ -7,7 +7,66 @@ const userName = document.querySelector('.user-name');
 const logInForm = document.querySelector('#logInForm');
 const closeModalButton = document.querySelector('.close-auth');
 const mes = document.querySelector('#ps')
+const restaurantList = document.querySelector('.cards-restaurants');
 
+function createCard({name, image, deliveryTime, rating, price, category}) {
+   const card = document.createElement('a');
+   card.href = 'restaurant.html';
+   card.classList.add('card', 'card-restaurant');
+
+   const img = document.createElement('img');
+   img.src = image;
+   img.alt = 'image';
+   img.classList.add('card-image');
+   card.appendChild(img);
+
+   const cardText = document.createElement('div');
+   cardText.classList.add('card-text');
+
+   const cardHeading = document.createElement('div');
+   cardHeading.classList.add('card-heading');
+   const title = document.createElement('h3');
+   title.classList.add('card-title');
+   title.textContent = name;
+   const tag = document.createElement('span');
+   tag.classList.add('card-tag', 'tag');
+   tag.textContent = deliveryTime + ' хвилин';
+   cardHeading.appendChild(title);
+   cardHeading.appendChild(tag);
+   cardText.appendChild(cardHeading);
+
+   const cardInfo = document.createElement('div');
+   cardInfo.classList.add('card-info');
+   
+   const ratingDiv = document.createElement('div');
+   ratingDiv.classList.add('rating');
+   ratingDiv.textContent = rating;
+
+   const priceDiv = document.createElement('div');
+   priceDiv.classList.add('price');
+   priceDiv.textContent = 'від ' + price + ' ₴';
+
+   const categoryDiv = document.createElement('div');
+   categoryDiv.classList.add('category');
+   categoryDiv.textContent = category;
+
+   cardInfo.appendChild(ratingDiv);
+   cardInfo.appendChild(priceDiv);
+   cardInfo.appendChild(categoryDiv);
+   cardText.appendChild(cardInfo);
+
+   card.appendChild(cardText);
+   restaurantList.appendChild(card);
+}
+
+fetch('./js/cards.json')
+   .then(response => response.json())
+   .then(data => {
+      data.forEach(createCard);
+   })
+   .catch(err => {
+      console.error('Error loading cards:', err);
+   });
 
 function toggleModal() {
    modalAuth.classList.toggle('is-open');
@@ -23,10 +82,11 @@ buttonAuth.addEventListener('click', toggleModal);
 closeModalButton.addEventListener('click', toggleModal);
 
 modalAuth.addEventListener('click', (event) => {
-   if (!event.target.closest('.auth-form')) {
-      toggleModal();
+   if (event.target === modalAuth) {
+       toggleModal();
    }
 });
+
 function logIn(event) {
    event.preventDefault();
 
@@ -34,7 +94,7 @@ function logIn(event) {
    if (login === "") {
       loginInput.classList.add('required');
       passInput.classList.add('required');
-      mes.classList.remove('hide')
+      mes.classList.remove('hide');
       return;
    }
 
@@ -77,3 +137,21 @@ function logout() {
 }
 
 buttonLogout.addEventListener('click', logout);
+
+function checkAuthAndRedirect(event) {
+   const savedLogin = localStorage.getItem('nameParametr');
+
+   if (savedLogin) {
+      window.location.href = 'restaurant.html';
+   } else {
+      event.preventDefault();
+      toggleModal();
+   }
+}
+
+restaurantList.addEventListener('click', function(event) {
+   const card = event.target.closest('.card-restaurant');
+   if (card) {
+      checkAuthAndRedirect(event);
+   }
+});
