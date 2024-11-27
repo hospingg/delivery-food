@@ -6,10 +6,10 @@ const passInput = document.querySelector('#password');
 const userName = document.querySelector('.user-name');
 const logInForm = document.querySelector('#logInForm');
 const closeModalButton = document.querySelector('.close-auth');
-const mes = document.querySelector('#ps')
+const mes = document.querySelector('#ps');
 const restaurantList = document.querySelector('.cards-restaurants');
 
-function createCard({name, image, deliveryTime, rating, price, category}) {
+function createCard({ name, image, deliveryTime, rating, price, category }) {
    const card = document.createElement('a');
    card.href = 'restaurant.html';
    card.classList.add('card', 'card-restaurant');
@@ -37,7 +37,7 @@ function createCard({name, image, deliveryTime, rating, price, category}) {
 
    const cardInfo = document.createElement('div');
    cardInfo.classList.add('card-info');
-   
+
    const ratingDiv = document.createElement('div');
    ratingDiv.classList.add('rating');
    ratingDiv.textContent = rating;
@@ -60,21 +60,21 @@ function createCard({name, image, deliveryTime, rating, price, category}) {
 }
 
 fetch('./js/cards.json')
-   .then(response => response.json())
-   .then(data => {
+   .then((response) => response.json())
+   .then((data) => {
       data.forEach(createCard);
    })
-   .catch(err => {
+   .catch((err) => {
       console.error('Error loading cards:', err);
    });
 
 function toggleModal() {
    modalAuth.classList.toggle('is-open');
-   document.body.classList.toggle('remove-scroll')
+   document.body.classList.toggle('remove-scroll');
 
    loginInput.classList.remove('required');
    passInput.classList.remove('required');
-   mes.classList.add('hide')
+   mes.classList.add('hide');
 }
 
 buttonAuth.addEventListener('click', toggleModal);
@@ -83,7 +83,7 @@ closeModalButton.addEventListener('click', toggleModal);
 
 modalAuth.addEventListener('click', (event) => {
    if (event.target === modalAuth) {
-       toggleModal();
+      toggleModal();
    }
 });
 
@@ -91,7 +91,7 @@ function logIn(event) {
    event.preventDefault();
 
    const login = loginInput.value.trim();
-   if (login === "") {
+   if (login === '') {
       loginInput.classList.add('required');
       passInput.classList.add('required');
       mes.classList.remove('hide');
@@ -113,7 +113,7 @@ function logIn(event) {
 
 logInForm.addEventListener('submit', logIn);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
    const savedLogin = localStorage.getItem('nameParametr');
 
    if (savedLogin) {
@@ -138,20 +138,16 @@ function logout() {
 
 buttonLogout.addEventListener('click', logout);
 
-function checkAuthAndRedirect(event) {
-   const savedLogin = localStorage.getItem('nameParametr');
-
-   if (savedLogin) {
-      window.location.href = 'restaurant.html';
-   } else {
-      event.preventDefault();
-      toggleModal();
-   }
-}
-
-restaurantList.addEventListener('click', function(event) {
+restaurantList.addEventListener('click', function (event) {
    const card = event.target.closest('.card-restaurant');
    if (card) {
-      checkAuthAndRedirect(event);
+      const savedLogin = localStorage.getItem('nameParametr');
+
+      if (savedLogin) {
+         window.location.href = 'restaurant.html';
+      } else {
+         toggleModal();
+         event.preventDefault();
+      }
    }
 });
