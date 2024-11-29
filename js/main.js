@@ -1,3 +1,6 @@
+
+
+
 const modalAuth = document.querySelector('.modal-auth');
 const buttonAuth = document.querySelector('.button-auth');
 const buttonLogout = document.querySelector('.button-out');
