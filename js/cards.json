@@ -1,51 +1,57 @@
 [
-    {
-      "name": "Піца плюс",
-      "image": "img/pizza-plus/preview.jpg",
-      "deliveryTime": "50",
-      "rating": 4.5,
-      "price": "200",
-      "category": "Піца"
-    },
-    {
-      "name": "Танукі",
-      "image": "img/tanuki/preview.jpg",
-      "deliveryTime": "60",
-      "rating": 4.5,
-      "price": "1 200",
-      "category": "Суші, роли"
-    },
-    {
-      "name": "FoodBand",
-      "image": "img/food-band/preview.jpg",
-      "deliveryTime": "40",
-      "rating": 4.5,
-      "price": "150",
-      "category": "Піца"
-    },
-    {
-      "name": "Ikigai",
-      "image": "img/palki-skalki/preview.jpg",
-      "deliveryTime": "55",
-      "rating": 4.5,
-      "price": "250",
-      "category": "Піца"
-    },
-    {
-      "name": "Пузата хата",
-      "image": "img/gusi-lebedi/preview.jpg",
-      "deliveryTime": "75",
-      "rating": 4.5,
-      "price": "300",
-      "category": "Українські"
-    },
-    {
-      "name": "PizzaBurger",
-      "image": "img/pizza-burger/preview.jpg",
-      "deliveryTime": "45",
-      "rating": 4.5,
-      "price": "700",
-      "category": "Піца"
-    }
+  {
+    "name": "Піца Плюс",
+    "deliveryTime": "50",
+    "rating": 4.5,
+    "price": 900,
+    "category": "Піца",
+    "image": "img/pizza-plus/preview.jpg",
+    "products": "pizza-plus.json"
+  },
+  {
+    "name": "Танукі",
+    "deliveryTime": "60",
+    "rating": 4.3,
+    "price": 1200,
+    "category": "Суші, роли",
+    "image": "img/tanuki/preview.jpg",
+    "products": "tanuki.json"
+  },
+  {
+    "name": "FoodBand",
+    "deliveryTime": "40",
+    "rating": 4.4,
+    "price": 450,
+    "category": "Піца",
+    "image": "img/food-band/preview.jpg",
+    "products": "food-band.json"
+  },
+  {
+    "name": "Ікігай",
+    "deliveryTime": "55",
+    "rating": 4.1,
+    "price": 500,
+    "category": "Піца",
+    "image": "img/ikigai/preview.jpg",
+    "products": "ikigai.json"
+  },
+  {
+    "name": "Пузата хата",
+    "deliveryTime": "75",
+    "rating": 4.7,
+    "price": 1000,
+    "category": "Українська кухня",
+    "image": "img/puzata-hata/preview.jpg",
+    "products": "puzata-hata.json"
+  },
+  {
+    "name": "PizzaBurger",
+    "deliveryTime": "45",
+    "rating": 4.6,
+    "price": 700,
+    "category": "Піца",
+    "image": "img/pizza-burger/preview.jpg",
+    "products": "pizza-burger.json"
+  }
 ]
-  
+

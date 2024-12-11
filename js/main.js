@@ -12,9 +12,9 @@ const closeModalButton = document.querySelector('.close-auth');
 const mes = document.querySelector('#ps');
 const restaurantList = document.querySelector('.cards-restaurants');
 
-function createCard({ name, image, deliveryTime, rating, price, category }) {
+function createCard({ name, image, deliveryTime, rating, price, category, products }) {
    const card = document.createElement('a');
-   card.href = 'restaurant.html';
+   card.href = `restaurant.html?products=${products}&restaurant=${name}&price=${price}&rating=${rating}&category=${category}`;
    card.classList.add('card', 'card-restaurant');
 
    const img = document.createElement('img');
