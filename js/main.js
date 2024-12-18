@@ -1,6 +1,3 @@
-
-
-
 const modalAuth = document.querySelector('.modal-auth');
 const buttonAuth = document.querySelector('.button-auth');
 const buttonLogout = document.querySelector('.button-out');
@@ -9,6 +6,7 @@ const passInput = document.querySelector('#password');
 const userName = document.querySelector('.user-name');
 const logInForm = document.querySelector('#logInForm');
 const closeModalButton = document.querySelector('.close-auth');
+const restaurantSearch = document.querySelector('.input-search.input');
 const mes = document.querySelector('#ps');
 const restaurantList = document.querySelector('.cards-restaurants');
 
@@ -62,10 +60,44 @@ function createCard({ name, image, deliveryTime, rating, price, category, produc
    restaurantList.appendChild(card);
 }
 
+function renderCards(data) {
+   restaurantList.innerHTML = '';
+   data.forEach(createCard);
+}
+
+function searchRestaurants(event) {
+    //Отримуємо значення з поля пошуку
+   const searchValue = event.target.value.toLowerCase().trim();
+   // Якщо користувач написав не одне слово, розбиваємо їх через пробіл
+   const searchWords = searchValue.split(/\s+/);
+
+   //Запит на отримання карток
+   fetch('./js/cards.json')
+      .then((response) => response.json())
+      // Фільруємо отриману інформацію про ресторани для пошуку
+      .then((data) => {
+         const filteredData = data.filter(({ name, category }) => {
+            const lowerCaseName = name.toLowerCase();
+            const lowerCaseCategory = category.toLowerCase();
+
+            return searchWords.some((word) =>
+               lowerCaseName.includes(word) || lowerCaseCategory.includes(word)
+            );
+         });
+         // Рендеримо картки на основі запиту користувача
+         renderCards(filteredData);
+      })
+      .catch((err) => {
+         console.error('Error loading cards:', err);
+      });
+}
+
+restaurantSearch.addEventListener('input', searchRestaurants);
+
 fetch('./js/cards.json')
    .then((response) => response.json())
    .then((data) => {
-      data.forEach(createCard);
+      renderCards(data);
    })
    .catch((err) => {
       console.error('Error loading cards:', err);
