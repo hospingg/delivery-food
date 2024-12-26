@@ -99,10 +99,11 @@ button {
 
 
 .button-primary {
+    gap: 10px;
     background: #1890ff;
     border: 1px solid #1890ff;
     color: #fff;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 
 .button-primary:hover {
@@ -568,6 +569,16 @@ button {
     line-height: 22px;
     color: #40a9ff;
 }
+.button-out-svg {
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        -webkit-mask: url(../img/icon/logout.svg) no-repeat 50% 50%;
+        mask: url(../img/icon/logout.svg) no-repeat 50% 50%;
+        background-repeat: no-repeat;
+        -webkit-mask-size: 20px;
+        mask-size: 20px;
+    }
 
 .counter-button:hover {
     background: #40a9ff;
@@ -593,9 +604,11 @@ button {
 }
 
 .footer-buttons {
+    gap: 10px;
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: flex-end;
 }
 
 
@@ -609,6 +622,9 @@ p{
     padding: 15px 20px;
     font-size: 20px;
     line-height: 23px;
+    width: auto;
+    white-space: nowrap; 
+    box-sizing: border-box;
 }
 
 @media (max-width: 1366px) {
@@ -748,6 +764,10 @@ p{
 }
 
 @media (max-width: 578px) {
+    .button{
+        font-size: 12px;
+
+    }
     .container {
         width: 90%;
     }
@@ -839,20 +859,9 @@ p{
     .button {
         min-height: 40px;
         padding: 5px 12px;
-
     }
 
-    .button-out-svg {
-        width: 24px;
-        height: 24px;
-        background-color: #fff;
-        -webkit-mask: url(../img/icon/logout.svg) no-repeat 50% 50%;
-        mask: url(../img/icon/logout.svg) no-repeat 50% 50%;
-        background-repeat: no-repeat;
-        -webkit-mask-size: 20px;
-        mask-size: 20px;
-    }
-
+    
     .promo {
         padding: 20px;
     }

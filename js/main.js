@@ -139,7 +139,7 @@ function logIn(event) {
    userName.style.display = 'inline';
 
    buttonAuth.style.display = 'none';
-   buttonLogout.style.display = 'inline-block';
+   buttonLogout.style.display = 'flex';
 
    toggleModal();
    logInForm.reset();
@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', function () {
       userName.textContent = savedLogin;
       userName.style.display = 'inline';
       buttonAuth.style.display = 'none';
-      buttonLogout.style.display = 'inline-block';
+      buttonLogout.style.display = 'flex';
    } else {
-      buttonAuth.style.display = 'block';
+      buttonAuth.style.display = 'flex';
       buttonLogout.style.display = 'none';
    }
 });
@@ -167,7 +167,7 @@ function logout() {
    userName.textContent = '';
    userName.style.display = 'none';
 
-   buttonAuth.style.display = 'block';
+   buttonAuth.style.display = 'flex';
    buttonLogout.style.display = 'none';
 }
 
