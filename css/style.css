@@ -386,6 +386,9 @@ button {
     font-size: 18px;
     line-height: 21px;
 }
+.hidden{
+    display: none;
+}
 
 .category {
     text-overflow: ellipsis;
@@ -500,6 +503,10 @@ button {
     margin-bottom: 45px;
 }
 
+.modal-header.phone{
+    margin-bottom: 10px;
+}
+
 .modal-title {
     margin: 0;
     font-weight: bold;
@@ -594,9 +601,14 @@ button {
 }
 
 .modal-footer {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.modal-footer.phone{
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .modal-auth .modal-footer {
@@ -625,6 +637,17 @@ p{
     width: auto;
     white-space: nowrap; 
     box-sizing: border-box;
+}
+
+
+.disabled{
+    background-color: #595959;
+    cursor: auto;
+}
+
+.disabled:hover{
+    background-color: #595959;
+    color: #FFFF;
 }
 
 @media (max-width: 1366px) {

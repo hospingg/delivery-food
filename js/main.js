@@ -186,3 +186,4 @@ restaurantList.addEventListener('click', function (event) {
       }
    }
 });
+

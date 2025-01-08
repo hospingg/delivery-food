@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/style.css" />
 	<script src="./js/menu.js" defer></script>
-	<script src="./js/cart.js" defer></script>
+	<script src="./js/cart.js" defer type="module"></script>
 </head>
 
 <body>
@@ -90,11 +90,18 @@
 				
 				<!-- /.foods-row -->
 			</div>
+			<div class="phone-modal">
+				<h3 >Введіть номер телефону</h3>
+				<div class="modal-body">
+					<input type="text" id="phone-number"/>
+				</div>
+			</div>
+				
 			<!-- /.modal-body -->
-			<div class="modal-footer">
+			<div class="modal-footer phone">
 				<span class="button modal-pricetag">0 ₴</span>
 				<div class="footer-buttons">
-					<button class="button button-primary">Оформити замовлення</button>
+					<button class="button button-primary" id="confirm-order">Оформити замовлення</button>
 					<button class="button clear-cart">Скасувати</button>
 				</div>
 			</div>
@@ -102,6 +109,21 @@
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
+	<!-- <div class="modal-phone hidden">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h3 class="modal-title">Введіть номер телефону</h3>
+				<button class="close">&times;</button>
+			</div>
+			<div class="modal-body">
+				<input type="text" id="phone-number" placeholder="Ваш номер телефону" />
+			</div>
+			<div class="modal-footer">
+				<button class="button button-primary" id="confirm-order">Підтвердити</button>
+				<button class="button clear-cart close-phone-modal">Скасувати</button>
+			</div>
+		</div>
+	</div> -->
 
 	<div class="modal-auth">
 		<div class="modal-dialog modal-dialog-auth">
